@@ -1,0 +1,53 @@
+UNESCO World Heritage Sites Shiny Application
+========================================================
+author: Shubham Agrawal 
+date: 8 December 2018
+autosize: true
+
+First Slide
+========================================================
+
+## Introduction
+A World Heritage site is a landmark or area which is selected by the **United Nations Educational, Scientific and Cultural Organization (UNESCO)** as having cultural, historical, scientific or other form of significance, and is legally protected by international treaties. The sites are judged important to the collective interests of humanity. According to UNESCO: *"What makes the concept of World Heritage exceptional is its universal application. World Heritage sites belong to all the peoples of the world, irrespective of the territory on which they are located."* For more information:
+
+* [UNESCO World Heritage Page](https://whc.unesco.org/en/about/)
+* [Wikipedia's World Heritage site Page](https://en.wikipedia.org/wiki/World_Heritage_site)
+
+========================================================
+
+```{r, message = FALSE}
+library(readxl)
+data <- read_xls('whc-sites-2018.xls')
+data <- data[c('name_en', 'short_description_en', 'longitude', 'latitude', 'category', 'states_name_en')]
+
+# extract data of a particular country
+data <- subset(data, states_name_en == 'India') 
+head(data)
+```
+
+========================================================
+
+### Steps to navigate through the application
+
+**Step 1:** To select any country, go to the sidebar menu and using drop-down list select the desired country or type in the name of the country.
+
+![](pic1.png)
+***
+
+
+**Step 2:** You can change choose between the two background options. One is the street view and the other one is terrain view. You can also select the category of UNESCO sites.
+
+
+![](pic2.png)
+
+
+
+========================================================
+
+**Step 3:** To learn more about any site, click on the marker and you will get a small description about that particular UNESCO site.
+
+![For Information about a site](pic3.png)
+
+### Link to the Shiny Application
+
+https://shubh2565.shinyapps.io/UNESCOWorldHeritageSites/
